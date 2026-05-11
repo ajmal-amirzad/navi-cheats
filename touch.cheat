@@ -1,0 +1,7 @@
+% file
+
+# create a new empty file
+touch <file name>
+
+# update file's access and modification time
+touch <file name>

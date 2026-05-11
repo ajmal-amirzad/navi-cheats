@@ -1,0 +1,10 @@
+% file
+
+# show differences between files
+diff <file1> <file2>
+
+# unified format diff output
+diff -u <file1> <file2>
+
+# recursively compare directories
+diff -r <dir1> <dir2>

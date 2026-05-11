@@ -1,0 +1,7 @@
+% open
+
+# open a file/app
+open <file_name>
+
+# open current directory in finder
+open .

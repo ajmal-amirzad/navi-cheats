@@ -1,0 +1,43 @@
+% brew
+
+# install a package
+brew install <package>
+
+# install a cask
+brew cask install <casks>
+
+# reinstall a package
+brew reinstall <package>
+
+# uninstall a package
+brew uninstall <package>
+
+# update Homebrew package definitions
+brew update
+
+# upgrade installed packages
+brew upgrade
+
+# remove unused dependencies
+brew autoremove
+
+# clean up old downloads and cache
+brew cleanup --prune=all
+
+# list installed packages
+brew list
+
+# search for a package
+brew search <package>
+
+# get info for a package
+brew info <package>
+
+# get info for a cask
+brew cask info <casks>
+
+# start a service
+brew services start <service>
+
+# stop a service
+brew services stop <service>

@@ -1,0 +1,112 @@
+% fzf
+
+# start interactive fuzzy finder
+fzf
+
+# search files from current directory
+find . | fzf
+
+# search files with fd
+fd . | fzf
+
+# multi-select results
+fzf -m
+
+# reverse layout
+fzf --layout=reverse
+
+# show inline information
+fzf --info=inline
+
+# start with query
+fzf --query="<search_text>"
+
+# exact match search
+fzf --exact
+
+# case-sensitive search
+fzf --case-sensitive
+
+# select file and open in vim
+vim "$(fzf)"
+
+# open selected file with default application
+xdg-open "$(fzf)"
+
+# search hidden files
+fd -H . | fzf
+
+# search files including ignored files
+fd -u . | fzf
+
+# select multiple files
+fd . | fzf -m
+
+# open selected files in vim
+vim $(fd . | fzf -m)
+
+# cd into selected directory
+cd "$(fd -t d . | fzf)"
+
+# search directories only
+fd -t d . | fzf
+
+# jump to project directory
+cd "$(fd -t d <project_pattern> ~ | fzf)"
+
+# select recent directories
+dirs -v | fzf
+
+# browse directories interactively
+find . -type d | fzf
+
+# delete selected files
+fd . | fzf -m | xargs rm
+
+# copy selected files
+fd . | fzf -m | xargs -I {} cp {} <destination_directory>
+
+# archive selected files
+fd . | fzf -m | tar -czf <archive_name>.tar.gz -T -
+
+# select multiple git branches
+git branch | fzf -m
+
+# search shell history
+history | fzf
+
+# execute selected history command
+eval "$(history | fzf)"
+
+# search history with preview
+history | fzf --preview 'echo {}'
+
+# search zsh history
+fc -l 1 | fzf
+
+# search bash history
+cat ~/.bash_history | fzf
+
+# search files with fd
+fd . | fzf
+
+# search directories with fd
+fd -t d . | fzf
+
+# search by extension
+fd -e <extension> | fzf
+
+# search hidden files
+fd -H . | fzf
+
+# search including ignored files
+fd -u . | fzf
+
+# select and kill process
+ps -ef | fzf | awk '{print $2}' | xargs kill
+
+# force kill selected process
+ps -ef | fzf | awk '{print $2}' | xargs kill -9
+
+# preview process details
+ps -ef | fzf --preview 'echo {}'

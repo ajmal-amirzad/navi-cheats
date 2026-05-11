@@ -1,0 +1,31 @@
+% systemctl
+
+# show all running services
+systemctl status
+
+# service status
+systemctl status <service>
+
+# start service
+systemctl start <service>
+
+# stop service
+systemctl stop <service>
+
+# restart service
+systemctl restart <service>
+
+# reload config
+systemctl reload <service>
+
+# enable at boot
+systemctl enable <service>
+
+# disable at boot
+systemctl disable <service>
+
+# boot status
+systemctl is-enabled <service>
+
+# list failed services
+systemctl --failed

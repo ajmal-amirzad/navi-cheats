@@ -1,0 +1,13 @@
+% link/unlink
+
+# create a symbolic link
+ln -s <source> <link>
+
+# force symbolic link
+ln -s <source> <link>
+
+# create a hard link
+ln <source> <link>
+
+# remove link
+unlink <link>

@@ -1,0 +1,124 @@
+% argocd
+
+# login to argocd
+argocd login <server>
+
+# login to argocd with username
+argocd login <server> --username <username>
+
+# show current argocd context
+argocd context
+
+# show current user info
+argocd account get-user-info
+
+# list applications
+argocd app list
+
+# get application details
+argocd app get <app_name>
+
+# create an application
+argocd app create <app_name> --repo <git_repo> --path <path> --dest-server <k8s_http_addr> --dest-namespace <namespace>
+
+# sync an application
+argocd app sync <app_name>
+
+# sync all applications
+argocd app sync --all
+
+# force sync an application
+argocd app sync <app_name> --force
+
+# enable auto sync
+argocd app set <app_name> --sync-policy automated
+
+# disable auto sync
+argocd app set <app_name> --sync-policy none
+
+# refresh application state
+argocd app get <app_name> --refresh
+
+# hard refresh application state
+argocd app get <app_name> --hard-refresh
+
+# delete an application
+argocd app delete <app_name>
+
+# show application history
+argocd app history <app_name>
+
+# rollback an application
+argocd app rollback <app_name> <revision_id>
+
+# wait until application becomes healthy
+argocd app wait <app_name> --health
+
+# wait until application is synced
+argocd app wait <app_name> --sync
+
+# show application resources
+argocd app resources <app_name>
+
+# show rendered manifests
+argocd app manifests <app_name>
+
+# compare live and git state
+argocd app diff <app_name>
+
+# list projects
+argocd proj list
+
+# get project details
+argocd proj get <project_name>
+
+# create a project
+argocd proj create <project_name>
+
+# list repositories
+argocd repo list
+
+# add a repository
+argocd repo add <repo_url>
+
+# remove a repository
+argocd repo rm <repo_url>
+
+# list clusters
+argocd cluster list
+
+# add a kubernetes cluster
+argocd cluster add <kube_context>
+
+# get argocd pods
+kubectl get pods -n argocd
+
+# get argocd services
+kubectl get svc -n argocd
+
+# port forward argocd ui
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+# show repo server logs
+kubectl logs -n argocd deploy/argocd-repo-server
+
+# show application controller logs
+kubectl logs -n argocd deploy/argocd-application-controller
+
+# get argocd events
+kubectl get events -n argocd
+
+# create a helm application
+argocd app create <app_name> --repo <git_repo> --path <chart_path> --dest-server <k8s_http_addr> --dest-namespace <namespace>
+
+# set helm values file
+argocd app set <app_name> --values <values_file>
+
+# restart argocd server
+kubectl rollout restart deployment argocd-server -n argocd
+
+# restart argocd repo server
+kubectl rollout restart deployment argocd-repo-server -n argocd
+
+# watch applications
+watch argocd app list

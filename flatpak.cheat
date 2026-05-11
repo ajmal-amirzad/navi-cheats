@@ -1,0 +1,265 @@
+% flatpak
+
+# show flatpak version
+flatpak --version
+
+# show flatpak help
+flatpak --help
+
+# list installed flatpak applications and runtimes
+flatpak list
+
+# show detailed flatpak system information
+flatpak info --show-location
+
+# list configured remotes
+flatpak remotes
+
+# add flathub remote
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# remove remote repository
+flatpak remote-delete <remote_name>
+
+# list remote repositories
+flatpak remotes
+
+# show remote details
+flatpak remotes --show-details
+
+# modify remote repository
+flatpak remote-modify <remote_name>
+
+# list apps available from remote
+flatpak remote-ls <remote_name>
+
+# search apps in remote
+flatpak remote-ls <remote_name> | grep <application_name>
+
+# search for applications
+flatpak search <application_name>
+
+# search for development tools
+flatpak search <keyword>
+
+# show application details
+flatpak info <application_id>
+
+# show application permissions
+flatpak info --show-permissions <application_id>
+
+# show application metadata
+flatpak info --show-metadata <application_id>
+
+# install application from flathub
+flatpak install flathub <application_id>
+
+# install application from specific remote
+flatpak install <remote_name> <application_id>
+
+# install application without prompts
+flatpak install -y flathub <application_id>
+
+# install specific version or branch
+flatpak install flathub <application_id>/<branch>
+
+# install flatpak bundle file
+flatpak install <bundle_file>
+
+# install runtime manually
+flatpak install flathub <runtime_id>
+
+# install application for current user only
+flatpak install --user flathub <application_id>
+
+# run installed application
+flatpak run <application_id>
+
+# run application with arguments
+flatpak run <application_id> <argument_1> <argument_2>
+
+# run specific application branch
+flatpak run <application_id>//<branch>
+
+# run command inside flatpak sandbox
+flatpak run --command=<command> <application_id>
+
+# open shell inside application sandbox
+flatpak run --command=sh <application_id>
+
+# run app with environment variable
+flatpak run --env=<variable>=<value> <application_id>
+
+# update all applications and runtimes
+flatpak update
+
+# update specific application
+flatpak update <application_id>
+
+# update specific runtime
+flatpak update <runtime_id>
+
+# update without prompts
+flatpak update -y
+
+# show available updates
+flatpak remote-ls --updates
+
+# update user-installed applications only
+flatpak update --user
+
+# uninstall application
+flatpak uninstall <application_id>
+
+# uninstall unused runtimes
+flatpak uninstall --unused
+
+# uninstall application and delete data
+flatpak uninstall --delete-data <application_id>
+
+# uninstall specific runtime
+flatpak uninstall <runtime_id>
+
+# uninstall application for current user only
+flatpak uninstall --user <application_id>
+
+# remove all unused packages
+flatpak remove --unused
+
+# override filesystem access
+flatpak override --filesystem=<path> <application_id>
+
+# allow home directory access
+flatpak override --filesystem=home <application_id>
+
+# allow network access
+flatpak override --share=network <application_id>
+
+# allow device access
+flatpak override --device=all <application_id>
+
+# remove overrides
+flatpak override --reset <application_id>
+
+# show active overrides
+flatpak override --show <application_id>
+
+# allow environment variable
+flatpak override --env=<variable>=<value> <application_id>
+
+# enter application sandbox shell
+flatpak enter <instance_id>
+
+# show running flatpak instances
+flatpak ps
+
+# show application logs
+flatpak logs <application_id>
+
+# run app with verbose logging
+flatpak run -v <application_id>
+
+# inspect sandbox permissions
+flatpak info --show-permissions <application_id>
+
+# show sandbox filesystem mounts
+flatpak info --show-location <application_id>
+
+# repair flatpak installation
+flatpak repair
+
+# create local repository
+flatpak build-export <repository_path> <build_directory>
+
+# build flatpak bundle
+flatpak build-bundle <repository_path> <bundle_file> <application_id>
+
+# install from local repository
+flatpak install <repository_path> <application_id>
+
+# update repository metadata
+flatpak build-update-repo <repository_path>
+
+# list repository contents
+flatpak repo --info <repository_path>
+
+# install flatpak builder
+flatpak install flathub org.flatpak.Builder
+
+# build application from manifest
+flatpak-builder <build_directory> <manifest_file>
+
+# clean previous build data
+flatpak-builder --force-clean <build_directory> <manifest_file>
+
+# install build result locally
+flatpak-builder --install <build_directory> <manifest_file>
+
+# run app from build directory
+flatpak-builder --run <build_directory> <manifest_file> <command>
+
+# export build to repository
+flatpak-builder --repo=<repository_path> <build_directory> <manifest_file>
+
+# list installed runtimes
+flatpak list --runtime
+
+# install runtime
+flatpak install flathub <runtime_id>
+
+# show runtime information
+flatpak info <runtime_id>
+
+# update runtimes only
+flatpak update --appstream
+
+# remove unused runtimes
+flatpak uninstall --unused
+
+# list available runtimes
+flatpak remote-ls flathub --runtime
+
+# install app system-wide
+sudo flatpak install flathub <application_id>
+
+# install app for current user only
+flatpak install --user flathub <application_id>
+
+# list user-installed applications
+flatpak list --user
+
+# list system-installed applications
+flatpak list --system
+
+# update user applications only
+flatpak update --user
+
+# update system applications only
+sudo flatpak update --system
+
+# create single-file flatpak bundle
+flatpak build-bundle <repository_path> <bundle_file> <application_id>
+
+# install from bundle
+flatpak install <bundle_file>
+
+# export app to repository
+flatpak build-export <repository_path> <build_directory>
+
+# create ostree repository
+ostree init --repo=<repository_path> --mode=archive-z2
+
+# remove unused runtimes and extensions
+flatpak uninstall --unused
+
+# repair broken installations
+flatpak repair
+
+# clear cache files
+rm -rf ~/.cache/flatpak
+
+# show disk usage
+du -sh ~/.local/share/flatpak
+
+# show installed application sizes
+flatpak list --columns=name,size

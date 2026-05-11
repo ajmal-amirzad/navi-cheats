@@ -1,0 +1,34 @@
+% zip/unzip
+
+# create tar archive
+tar -cvf <archive_name>.tar <dir_name>
+
+# extract tar archive
+tar -xvf <archive_name>.tar
+
+# list tar contents
+tar -tvf <archive_name>.tar
+
+# gzip compressed tar
+tar -cvzf <archive_name>.tar.gz <dir_name>
+
+# extract gzip tar
+tar -xvzf <archive_name>.tar.gz
+
+# create zip archive
+zip -r <archive_name>.zip <dir_name>
+
+# extract zip
+unzip <archive_name>.zip
+
+# extract zip to directory
+unzip <archive_name>.zip -d <dir_name>
+
+# compress a file with gzip
+gzip <file_name>
+
+# decompress a file with gzip
+gzip -d <file_name>
+
+# extract a gzip file
+gunzip <file_name>.gz

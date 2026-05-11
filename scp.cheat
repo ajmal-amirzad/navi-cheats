@@ -1,0 +1,7 @@
+% scp
+
+# secure copy to remote
+scp <file> <user>@<host>:<path>
+
+# secure copy from remote
+scp <user>@<host>:<file> <path>

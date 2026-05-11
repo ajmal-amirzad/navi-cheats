@@ -1,0 +1,489 @@
+
+% dotnet basics
+
+# show installed .NET SDK version
+dotnet --version
+
+# show detailed .NET information
+dotnet --info
+
+# list installed SDKs
+dotnet --list-sdks
+
+# list installed runtimes
+dotnet --list-runtimes
+
+# show available dotnet commands
+dotnet --help
+
+# create a new console application
+dotnet new console -n <project_name>
+
+# create a new web api project
+dotnet new webapi -n <project_name>
+
+# create a new mvc project
+dotnet new mvc -n <project_name>
+
+# create a new class library
+dotnet new classlib -n <project_name>
+
+# create a new xunit test project
+dotnet new xunit -n <project_name>
+
+# create a new solution file
+dotnet new sln -n <solution_name>
+
+# list available project templates
+dotnet new list
+
+# create project in current directory
+dotnet new console
+
+# create project targeting specific framework
+dotnet new console --framework <target_framework>
+
+# add project to solution
+dotnet sln add <project_path>
+
+# remove project from solution
+dotnet sln remove <project_path>
+
+# list projects in solution
+dotnet sln list
+
+# create solution and add project
+dotnet new sln -n <solution_name>
+dotnet sln add <project_path>
+
+# add nuget package
+dotnet add package <package_name>
+
+# add package with specific version
+dotnet add package <package_name> --version <version>
+
+# remove nuget package
+dotnet remove package <package_name>
+
+# list project packages
+dotnet list package
+
+# check outdated packages
+dotnet list package --outdated
+
+# restore project dependencies
+dotnet restore
+
+# restore packages for solution
+dotnet restore <solution_file>
+
+# add project reference
+dotnet add reference <project_reference>
+
+# remove project reference
+dotnet remove reference <project_reference>
+
+# build current project
+dotnet build
+
+# build in release mode
+dotnet build -c Release
+
+# build specific project
+dotnet build <project_file>
+
+# clean build artifacts
+dotnet clean
+
+# clean release artifacts
+dotnet clean -c Release
+
+# rebuild project
+dotnet clean && dotnet build
+
+# build without restore
+dotnet build --no-restore
+
+# build with detailed verbosity
+dotnet build -v detailed
+
+# run current project
+dotnet run
+
+# run without rebuilding
+dotnet run --no-build
+
+# run with specific configuration
+dotnet run -c Release
+
+# pass arguments to application
+dotnet run -- <argument_1> <argument_2>
+
+# run specific project
+dotnet run --project <project_path>
+
+# watch for file changes and rerun
+dotnet watch run
+
+# run all tests
+dotnet test
+
+# run tests in release mode
+dotnet test -c Release
+
+# run specific test project
+dotnet test <test_project>
+
+# run tests without rebuilding
+dotnet test --no-build
+
+# run tests with detailed output
+dotnet test -v normal
+
+# filter tests by name
+dotnet test --filter "FullyQualifiedName~<test_name>"
+
+# collect code coverage
+dotnet test --collect:"XPlat Code Coverage"
+
+# watch tests continuously
+dotnet watch test
+
+# publish application
+dotnet publish
+
+# publish release build
+dotnet publish -c Release
+
+# publish self-contained executable
+dotnet publish -c Release --self-contained true
+
+# publish for runtime
+dotnet publish -r <runtime_identifier>
+
+# publish single-file executable
+dotnet publish -p:PublishSingleFile=true
+
+# publish trimmed application
+dotnet publish -p:PublishTrimmed=true
+
+# publish to output directory
+dotnet publish -o <output_directory>
+
+# create nuget package
+dotnet pack
+
+# create release nuget package
+dotnet pack -c Release
+
+# push package to nuget
+dotnet nuget push <package_file> --api-key <api_key> --source <nuget_source>
+
+# add nuget source
+dotnet nuget add source <source_url> -n <source_name>
+
+# list nuget sources
+dotnet nuget list source
+
+# remove nuget source
+dotnet nuget remove source <source_name>
+
+# install ef core cli tool
+dotnet tool install --global dotnet-ef
+
+# create new migration
+dotnet ef migrations add <migration_name>
+
+# apply migrations to database
+dotnet ef database update
+
+# remove last migration
+dotnet ef migrations remove
+
+# list migrations
+dotnet ef migrations list
+
+# generate sql migration script
+dotnet ef migrations script
+
+# drop database
+dotnet ef database drop
+
+# scaffold database context
+dotnet ef dbcontext scaffold "<connection_string>" <provider_name>
+
+# optimize dbcontext
+dotnet ef dbcontext optimize
+
+# install global tool
+dotnet tool install --global <tool_name>
+
+# update global tool
+dotnet tool update --global <tool_name>
+
+# uninstall global tool
+dotnet tool uninstall --global <tool_name>
+
+# list installed global tools
+dotnet tool list --global
+
+# install local tool
+dotnet tool install <tool_name>
+
+# restore local tools
+dotnet tool restore
+
+# run local tool
+dotnet tool run <tool_name>
+
+# list installed workloads
+dotnet workload list
+
+# install workload
+dotnet workload install <workload_name>
+
+# update workloads
+dotnet workload update
+
+# restore required workloads
+dotnet workload restore
+
+# uninstall workload
+dotnet workload uninstall <workload_name>
+
+# format code
+dotnet format
+
+# format whitespace only
+dotnet format whitespace
+
+# analyze code formatting changes
+dotnet format --verify-no-changes
+
+# generate dependency graph
+dotnet list package --include-transitive
+
+# run diagnostic build
+dotnet build -v diagnostic
+
+# search templates online
+dotnet new search <template_name>
+
+# install template package
+dotnet new install <template_package>
+
+# uninstall template package
+dotnet new uninstall <template_package>
+
+# update installed templates
+dotnet new update
+
+# show template details
+dotnet new <template_name> --help
+
+# create global.json with sdk version
+dotnet new globaljson
+
+# create global.json with specific version
+dotnet new globaljson --sdk-version <sdk_version>
+
+# show environment variables used by dotnet
+dotnet --info
+
+# use telemetry opt-out
+DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# pass msbuild property
+dotnet build -p:<property_name>=<value>
+
+# build with parallelism disabled
+dotnet build -maxcpucount:1
+
+# generate binary log
+dotnet build -bl
+
+# restore with locked mode
+dotnet restore --locked-mode
+
+# trust development https certificate
+dotnet dev-certs https --trust
+
+# clean development certificates
+dotnet dev-certs https --clean
+
+# generate development certificate
+dotnet dev-certs https
+
+# run aspnet app with hot reload
+dotnet watch
+
+# watch specific project
+dotnet watch --project <project_path> run
+
+# publish container image
+dotnet publish /t:PublishContainer
+
+# publish container with image name
+dotnet publish /t:PublishContainer -p:ContainerImageName=<image_name>
+
+# publish linux container
+dotnet publish --os linux --arch x64 /t:PublishContainer
+
+# use specific .NET SDK msbuild
+dotnet msbuild <solution_file>
+
+# run custom msbuild target
+dotnet msbuild -target:<target_name>
+
+# show msbuild properties
+dotnet msbuild -property:Configuration=<configuration>
+
+# show msbuild version
+msbuild -version
+
+# show help
+msbuild -help
+
+# list available targets
+msbuild <project_or_solution_file> -t:Help
+
+# build default project/solution
+msbuild <project_or_solution_file>
+
+# build solution
+msbuild <solution_file>.sln
+
+# build project
+msbuild <project_file>.csproj
+
+# clean build output
+msbuild <project_or_solution_file> -t:Clean
+
+# rebuild project
+msbuild <project_or_solution_file> -t:Rebuild
+
+# build specific target
+msbuild <project_or_solution_file> -t:<target_name>
+
+# build in Debug configuration
+msbuild <solution_file> -p:Configuration=Debug
+
+# build in Release configuration
+msbuild <solution_file> -p:Configuration=Release
+
+# specify platform (Any CPU / x64 / x86)
+msbuild <solution_file> -p:Platform="Any CPU"
+
+# combine configuration and platform
+msbuild <solution_file> -p:Configuration=Release -p:Platform=x64
+
+# restore nuget packages
+msbuild <solution_file> -t:Restore
+
+# build with restore
+msbuild <solution_file> -t:Restore,Build
+
+# skip restore (if already restored)
+msbuild <solution_file> -t:Build
+
+# detailed build log
+msbuild <solution_file> -v:diag
+
+# minimal verbosity
+msbuild <solution_file> -v:minimal
+
+# normal verbosity
+msbuild <solution_file> -v:normal
+
+# quiet mode
+msbuild <solution_file> -v:quiet
+
+# binary log (for debugging builds)
+msbuild <solution_file> -bl
+
+# set custom property
+msbuild <solution_file> -p:<PropertyName>=<Value>
+
+# example: set version
+msbuild <solution_file> -p:Version=1.0.0
+
+# disable incremental build
+msbuild <solution_file> -p:UseSharedCompilation=false
+
+# override output path
+msbuild <project_file> -p:OutputPath=<output_directory>
+
+# run multiple targets
+msbuild <solution_file> -t:Clean;Build
+
+# skip specific target
+msbuild <solution_file> -t:Build -p:NoBuild=true
+
+# show executed targets
+msbuild <solution_file> -v:diag
+
+# enable parallel build (default)
+msbuild <solution_file> -m
+
+# set number of workers
+msbuild <solution_file> -m:4
+
+# disable parallel build
+msbuild <solution_file> -m:1
+
+# set output directory
+msbuild <project_file> -p:OutputPath=<path>
+
+# set intermediate output directory
+msbuild <project_file> -p:IntermediateOutputPath=<path>
+
+# suppress console output
+msbuild <solution_file> -v:quiet
+
+# publish project
+msbuild <project_file> -t:Publish
+
+# publish with configuration
+msbuild <project_file> -t:Publish -p:Configuration=Release
+
+# set publish directory
+msbuild <project_file> -t:Publish -p:PublishDir=<output_directory>
+
+# self-contained publish (if supported)
+msbuild <project_file> -t:Publish -p:SelfContained=true
+
+# clean solution
+msbuild <solution_file> -t:Clean
+
+# clean + build
+msbuild <solution_file> -t:Clean,Build
+
+# delete bin/obj manually (fallback)
+rm -rf bin obj
+
+# build all projects in solution
+msbuild <solution_file>
+
+# build specific project inside solution
+msbuild <solution_file> -t:<ProjectName>:Build
+
+# list solution projects (via verbosity)
+msbuild <solution_file> -v:diag
+
+# full diagnostic logging
+msbuild <solution_file> -v:diag
+
+# log to file
+msbuild <solution_file> -fl -flp:logfile=build.log;verbosity=diagnostic
+
+# show stack traces
+msbuild <solution_file> -v:diag -bl
+
+# binary log analysis
+msbuild <solution_file> -bl
+
+# show msbuild environment info
+msbuild -version -nologo
+
+# set environment variable for verbosity
+set MSBUILDLOGLEVEL=diagnostic

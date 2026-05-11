@@ -1,0 +1,178 @@
+% helm
+
+# create a new chart directory with default structure
+helm create <name>
+
+# package a chart into a versioned archive
+helm package <chart-path>
+
+# lint a chart for potential issues
+helm lint <chart>
+
+# display all chart information (metadata, values, templates, etc.)
+helm show all <chart>
+
+# show values.yaml contents of a chart
+helm show values <chart>
+
+# download (pull) a chart from a repository
+helm pull <chart>
+
+# download and extract the chart after pulling
+helm pull <chart> --untar
+
+# verify a chart package before using it
+helm pull <chart> --verify
+
+# pull a specific chart version
+helm pull <chart> --version <number>
+
+# list a chart's dependencies
+helm dependency list <chart>
+
+# install a chart with a release name
+helm install <name> <chart>
+
+# install a chart into a specific namespace
+helm install <name> <chart> --namespace <namespace>
+
+# install with custom values from command line
+helm install <name> <chart> --set key1=val1,key2=val2
+
+# install with values from file or URL
+helm install <name> <chart> --values <yaml-file-or-url>
+
+# simulate installation (dry run) with debug output
+helm install <name> <chart> --dry-run --debug
+
+# verify chart before installation
+helm install <name> <chart> --verify
+
+# install and update dependencies automatically if missing
+helm install <name> <chart> --dependency-update
+
+# uninstall a release
+helm uninstall <name>
+
+# upgrade an existing release
+helm upgrade <release> <chart>
+
+# upgrade with rollback on failure (atomic upgrade)
+helm upgrade <release> <chart> --atomic
+
+# upgrade and update dependencies if needed
+helm upgrade <release> <chart> --dependency-update
+
+# upgrade using a specific chart version
+helm upgrade <release> <chart> --version <version_number>
+
+# upgrade using values file or URL
+helm upgrade <release> <chart> --values <file-or-url>
+
+# upgrade using command-line values
+helm upgrade <release> <chart> --set key1=val1,key2=val2
+
+# force upgrade using replacement strategy
+helm upgrade <release> <chart> --force
+
+# rollback a release to a specific revision
+helm rollback <release> <revision>
+
+# rollback with cleanup on failure
+helm rollback <release> <revision> --cleanup-on-fail
+
+# add a chart repository
+helm repo add <repo-name> <url>
+
+# list chart repositories
+helm repo list
+
+# update repository information
+helm repo update
+
+# remove a chart repository
+helm repo remove <repo-name>
+
+# generate an index file for a chart repository
+helm repo index <DIR>
+
+# merge new index with existing index file
+helm repo index <DIR> --merge
+
+# search repositories for charts by keyword
+helm search repo <keyword>
+
+# search Artifact Hub for charts
+helm search hub <keyword>
+
+# list all releases in current namespace
+helm list
+
+# list all releases across all namespaces
+helm list --all-namespaces
+
+# list all releases without filters
+helm list --all
+
+# filter releases using label selector
+helm list -l key1=value1,key2=value2
+
+# sort releases by date
+helm list --date
+
+# show only deployed releases
+helm list --deployed
+
+# show pending releases
+helm list --pending
+
+# show failed releases
+helm list --failed
+
+# show uninstalled releases with history
+helm list --uninstalled
+
+# show superseded releases
+helm list --superseded
+
+# output in YAML format
+helm list -o yaml
+
+# show release status
+helm status <release>
+
+# show status for a specific revision
+helm status <release> --revision <number>
+
+# show release history
+helm history <release>
+
+# show Helm environment variables
+helm env
+
+# show full release details (values, manifests, hooks, notes)
+helm get all <release>
+
+# show release hooks
+helm get hooks <release>
+
+# show rendered Kubernetes manifests
+helm get manifest <release>
+
+# show release notes
+helm get notes <release>
+
+# get values for a release
+helm get values <release>
+
+# install a Helm plugin
+helm plugin install <path-or-url>
+
+# list installed plugins
+helm plugin list
+
+# update a plugin
+helm plugin update <plugin>
+
+# uninstall a plugin
+helm plugin uninstall <plugin>

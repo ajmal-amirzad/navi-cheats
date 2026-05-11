@@ -1,0 +1,4 @@
+% file & directory
+
+# remove an empty directory
+rmdir <dir_name>

@@ -1,0 +1,201 @@
+% golang
+
+# show go version
+go version
+
+# print go help
+go help
+
+# show go environment
+go env
+
+# show GOPATH
+go env GOPATH
+
+# show GOROOT
+go env GOROOT
+
+# set GOPROXY
+go env -w goPROXY=https://proxy.golang.org
+
+# disable module cache
+go env -w GOMODCACHE=off
+
+# enable module mode
+go env -w GO111MODULE=on
+
+# format all files in the current package
+go fmt
+
+# format a file
+go fmt <file_name>
+
+# format all go files in current module
+go fmt ./...
+
+# vet code for issues(static analysis)
+go vet ./...
+
+# initialize module in directory
+go mod init <module_name>
+
+# download dependencies
+go mod download
+
+# tidy up dependencies
+go mod tidy
+
+# verify dependencies
+go mod verify
+
+# edit go.mod manually
+go mod edit
+
+# vendor dependencies
+go mod vendor
+
+# graph dependencies
+go mod graph
+
+# show why dependency is used
+go mod why <package>
+
+# list current package
+go list
+
+# list all packages
+go list ./...
+
+# list dependencies
+go list -m all
+
+# run a simple main file
+go run main.go
+
+# run all package files
+go run .
+
+# run program
+go run <file.go>
+
+# run with race detector
+go run -race .
+
+# build binary
+go build
+
+# build specific file
+go build <file.go>
+
+# build with output name
+go build -o <binary_name>
+
+# build for specific OS/ARCH
+goOS=linux goARCH=amd64 go build -o <binary_name>
+
+# clean build cache
+go clean
+
+# clean module cache
+go clean -modcache
+
+# run all tests
+go test ./...
+
+# run tests in current package
+go test
+
+# run tests with verbose output
+go test -v ./...
+
+# run specific test
+go test -run <TestName>
+
+# run tests with coverage
+go test -cover ./...
+
+# generate coverage profile
+go test -coverprofile=coverage.out ./...
+
+# benchmark tests
+go test -bench=.
+
+# run tests multiple times
+go test -count=10 ./...
+
+# test with race detector
+go test -race ./...
+
+# generate CPU profile
+go test -cpuprofile cpu.out ./...
+
+# generate memory profile
+go test -memprofile mem.out ./...
+
+# trace execution
+go test -trace trace.out ./...
+
+# view coverage in browser
+go tool cover -html=coverage.out
+
+# analyze CPU profile
+go tool pprof cpu.out
+
+# analyze when and why events happen over a timeline
+go tool trace trace.out
+
+# install golangci-lint
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+
+# run linter
+golangci-lint run
+
+# fix lint issues (where possible)
+golangci-lint run --fix
+
+# add dependency
+go get <package>
+
+# add specific version
+go get <package>@<version>
+
+# upgrade dependency
+go get -u <package>
+
+# upgrade all dependencies
+go get -u ./...
+
+# install CLI tool
+go install <package>@latest
+
+# install specific version tool
+go install <package>@<version>
+
+# install golangci-lint
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+
+# install air (live reload)
+go install github.com/air-verse/air@latest
+
+# fix all packages in the current module
+go fix ./...
+
+# fix a specific package
+go fix <package>
+
+# preview changes as a unified diff without modifying files
+go fix -diff [package]
+
+# output fixes as JSON instead of applying them
+go fix -json [package]
+
+
+
+# initialize workspace
+go work init
+
+# add module to workspace
+go work use <module_path>
+
+# sync workspace
+go work sync

@@ -1,0 +1,10 @@
+% wget
+
+# download file
+wget <url>
+
+# download with custom filename
+wget -O <filename> <URL>
+
+# recursive download
+wget -r <url>

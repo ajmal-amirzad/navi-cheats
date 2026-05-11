@@ -1,0 +1,337 @@
+% git
+
+# set global Git username
+git config --global user.name "test"
+
+# set global Git email
+git config --global user.email "test@test.com"
+
+# set global default editor
+git config --global core.editor "nano"
+
+# show global configuration
+git config --global --list
+
+# list all Git configuration
+git config --list
+
+# initialize a local Git repository
+git init
+
+# check repository status
+git status
+
+# clone a remote repository
+git clone <repo_url>
+
+# clone into a specific directory
+git clone <repo_url> <dir_name>
+
+# clone a specific branch
+git clone -b <branch> <repo_url>
+
+# add a file to staging
+git add <file>
+
+# add all files to staging
+git add .
+
+# stage only modified and deleted files (excluding new files)
+git add -u
+
+# interactively stage changes (hunks)
+git add -p <file>
+
+# add all files except specified ones
+git add . ':!<file>'
+
+# commit changes with a message
+git commit -m "message"
+
+# commit with a multi-line message
+git commit -m "message" -m "message"
+
+# stage modified/deleted files and commit (does not include new files)
+git commit -am "message"
+
+# amend the last commit
+git commit --amend
+
+# amend last commit without changing message
+git commit --amend --no-edit
+
+# create an empty commit
+git commit --allow-empty -m "message"
+
+# list local branches
+git branch
+
+# list all branches (local and remote)
+git branch -a
+
+# list remote branches
+git branch -r
+
+# show merged branches
+git branch --merged
+
+# create a new branch
+git branch <branch>
+
+# delete a branch
+git branch -d <branch>
+
+# force delete a branch
+git branch -D <branch>
+
+# rename current branch
+git branch -m <new_branch>
+
+# rename a specific branch
+git branch -m <old_branch> <new_branch>
+
+# show current branch name
+git branch --show-current
+
+# merge a branch into current branch
+git merge <branch>
+
+# merge source into target branch
+git merge <source_branch> <target_branch>
+
+# continue merge after resolving conflicts
+git merge --continue
+
+# abort merge
+git merge --abort
+
+# stash current changes
+git stash push
+
+# stash with a message
+git stash push -m "message"
+
+# stash including untracked files
+git stash -u
+
+# clear all stashes
+git stash clear
+
+# apply and remove latest stash
+git stash pop
+
+# apply specific stash
+git stash pop <stash_id>
+
+# list stashes
+git stash list
+
+# show latest stash changes
+git stash show -p
+
+# show specific stash changes
+git stash show <stash_id> -p
+
+# push changes to remote
+git push
+
+# force push (overwrite history)
+git push --force
+
+# push and set upstream branch
+git push -u origin <branch>
+
+# delete remote branch
+git push origin --delete <branch>
+
+# pull from remote
+git pull
+
+# pull specific branch
+git pull origin <branch>
+
+# show commit history
+git log
+
+# show commits for a file
+git log <file>
+
+# compact log view
+git log --oneline
+
+# show commits with patch
+git log --patch
+
+# show graph of all branches
+git log --graph --all
+
+# show remote repositories
+git remote
+
+# add remote repository
+git remote add origin <remote_repo_url>
+
+# show verbose remote info
+git remote -v
+
+# remove remote
+git remote rm origin
+
+# show changes
+git diff
+
+# show staged changes
+git diff --staged
+
+# compare with remote master
+git diff origin/master
+
+# compare with master
+git diff master
+
+# compare branches
+git diff <source_branch>..<target_branch>
+
+# compare commits
+git diff <commit_hash> <commit_hash>
+
+# fetch remote updates
+git fetch
+
+# fetch from origin
+git fetch origin
+
+# switch branch
+git switch <branch>
+
+# create and switch branch
+git switch -c <branch>
+
+# switch to previous branch
+git switch -
+
+# create orphan branch
+git switch --orphan <branch>
+
+# switch and discard changes
+git switch --discard-changes
+
+# unstage changes
+git reset
+
+# unstage file
+git reset <file>
+
+# reset to commit (keep changes)
+git reset <commit_hash>
+
+# hard reset (discard everything)
+git reset --hard
+
+# hard reset to commit
+git reset --hard <commit_hash>
+
+# discard all changes
+git reset --hard HEAD
+
+# remove untracked files
+git clean -f
+
+# remove specific untracked file
+git clean -f <file>
+
+# interactive clean
+git clean -i
+
+# apply a commit from another branch
+git cherry-pick <commit_hash>
+
+# apply multiple commits
+git cherry-pick <commit_hash> <commit_hash>
+
+# apply commit without committing
+git cherry-pick -n <commit_hash>
+
+# abort cherry-pick
+git cherry-pick --abort
+
+# continue cherry-pick
+git cherry-pick --continue
+
+# remove file from repo and stage deletion
+git rm <file>
+
+# remove multiple files
+git rm <file> <file>
+
+# remove directory recursively
+git rm -r <directory>
+
+# force remove file
+git rm -f <file>
+
+# rename or move file
+git mv <old> <new>
+
+# move file to directory
+git mv <file> <directory>/
+
+# move multiple files
+git mv <file1> <file2> <directory>/
+
+# force move/rename
+git mv -f <old> <new>
+
+# rebase onto branch
+git rebase <branch>
+
+# interactive rebase
+git rebase -i <commit>
+
+# continue rebase
+git rebase --continue
+
+# abort rebase
+git rebase --abort
+
+# show latest commit details
+git show
+
+# show specific commit
+git show <commit>
+
+# show current commit
+git show HEAD
+
+# show previous commit
+git show HEAD~1
+
+# list worktrees
+git worktree list
+
+# detailed worktree info
+git worktree list --verbose
+
+# add worktree for branch
+git worktree add <path> <branch>
+
+# create new branch in worktree
+git worktree add -b <new_branch> <path> <base_branch>
+
+# detached worktree at commit
+git worktree add --detach <path> <commit>
+
+# remove worktree
+git worktree remove <path>
+
+# force remove worktree
+git worktree remove --force <path>
+
+# move worktree
+git worktree move <old_path> <new_path>
+
+# lock worktree
+git worktree lock <path>
+
+# unlock worktree
+git worktree unlock <path>

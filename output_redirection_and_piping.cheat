@@ -1,0 +1,19 @@
+% output redirection and piping
+
+# write output to file (overwrite)
+ls -l > <file name>
+
+# append output to file
+ls -l >> <file name>
+
+# redirect errors to file
+ls -l 2> <file name>
+
+# redirect both output and errors to file
+ls -l &> <file name>
+
+# pipe output of command1 to command2
+<command_1> | <command_2>
+
+# search and count results
+grep "text" <file_name> | wc -l

@@ -1,0 +1,10 @@
+% file & directory
+
+# copy a file or directory
+cp <source> <destination>
+
+# copy a directory recursively
+cp -r <source_dir> <destination_dir>
+
+# prompt before overwriting
+cp -i <source> <destination>

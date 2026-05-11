@@ -1,0 +1,10 @@
+% file
+
+# display last 10 lines
+tail <file_name>
+
+# display last 20 lines
+tail -n 20 <file_name>
+
+# follow file as it grows
+tail -f <file_name>

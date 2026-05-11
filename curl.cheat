@@ -1,0 +1,121 @@
+% curl, http
+
+# send a get http request
+curl <url>
+
+# send a http request
+curl -X <method> <url>
+
+# send a http request and write the output to a file
+curl -X <method> <url> -o <filename>
+
+# send a get http request and follow redirects
+curl -L <url>
+
+# send a get http request exit with a non-zero status code on failure
+curl --fail <url>
+
+# send an authenticated http request
+curl -u <username>:<password> -X <method> <url>
+
+# send a http request with a json body
+curl -X <method> <url>  -H 'Content-Type: application/json' -d '<json>'
+
+# send a http request with a form body
+curl <url> -d <bodykey>=<bodyvalue>
+
+# send a http request and see the request as well as the response
+curl -v <url>
+
+# send a http request with a body from a file
+curl -X <method> <url> --data-binary "@<file>"
+
+# send a http request with a custom header
+curl -X <method> <url> -H "<headername>: <headervalue>"
+
+# fetch only HTTP headers
+curl -I <url>
+
+# include response headers in output
+curl -i <url>
+
+# follow redirects and show final response
+curl -L <url>
+
+# save response headers to a file
+curl -D <headers_file> <url>
+
+# resume a partially downloaded file
+curl -C - -O <url>
+
+# download file with original remote name
+curl -O <url>
+
+# download file with custom name
+curl -o <file_name> <url>
+
+# run request silently (no progress output)
+curl -s <url>
+
+# show progress bar while downloading
+curl -# <url>
+
+# limit download speed
+curl --limit-rate <speed> <url>
+
+# ignore SSL certificate validation (not secure)
+curl -k <url>
+
+# use a proxy server
+curl -x <proxy_url> <url>
+
+# send cookies with request
+curl -b "<cookie_string>" <url>
+
+# save cookies from response
+curl -c <cookie_file> <url>
+
+# use cookies from a file
+curl -b <cookie_file> <url>
+
+# send multiple headers
+curl -H "Header1: value1" -H "Header2: value2" <url>
+
+# set a user agent
+curl -A "<user_agent>" <url>
+
+# download and follow redirects with fail on error
+curl -L --fail <url>
+
+# output only HTTP status code
+curl -o /dev/null -s -w "%{http_code}\n" <url>
+
+# show detailed debug information (trace request/response)
+curl --trace-ascii <file> <url>
+
+# upload a file
+curl -F "file=@<file_path>" <url>
+
+# upload multiple files
+curl -F "file1=@a.txt" -F "file2=@b.txt" <url>
+
+# send PUT request with file upload
+curl -X PUT --upload-file <file> <url>
+
+# send HEAD request (headers only, no body)
+curl -X HEAD <url>
+
+# send request with basic authentication (safer flag format)
+curl --user <username>:<password> <url>
+
+# retry request on failure
+curl --retry 3 <url>
+
+# retry with delay between attempts
+curl --retry 3 --retry-delay 2 <url>
+
+# set timeout for request
+curl --max-time <seconds> <url>
+
+# connect timeout only
+curl --connect-timeout <seconds> <url>

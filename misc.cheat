@@ -1,0 +1,49 @@
+% misc
+
+# display system hostname
+hostname
+
+# display system information
+uname
+
+# display all system information
+uname -a
+
+# display machine hardware name
+uname -m
+
+# display kernel name
+uname -s
+
+# display kernel release
+uname -r
+
+# display system uptime
+uptime
+
+# display current date and time
+date
+
+# display date in specific format
+date '+%Y-%m-%d'
+
+# display a command manual/help
+man <command>
+
+# search man pages by keyword
+man -k <keyword>
+
+# display the type of a command
+type <command>
+
+# locate a program in the user's $PATH like ls, mkdir, etc
+which <executable>
+
+# locate all instances of command
+which --all <executable>
+
+# detect a file type
+file <file>
+
+# measure runtime of a command
+time <command>

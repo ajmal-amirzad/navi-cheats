@@ -1,0 +1,31 @@
+% debian/ubuntu package
+
+# refresh the package index
+apt update
+
+# install a package
+apt install <package>
+
+# remove a package
+apt remove <package>
+
+# remove a package along with its configuration files
+apt purge <package>
+
+# upgrade installed packages
+apt upgrade
+
+# upgrade packages with dependency changes (may add or remove packages)
+apt full-upgrade
+
+# remove unused dependencies
+apt autoremove
+
+# clear downloaded package cache
+apt clean
+
+# show detailed information about a package
+apt show <package>
+
+# list all installed packages
+apt list --installed

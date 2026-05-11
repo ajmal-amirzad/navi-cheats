@@ -1,0 +1,7 @@
+% checksum
+
+# calculate MD5 checksum
+md5sum <file_name>
+
+# calculate SHA256 checksum
+sha256sum <file_name>

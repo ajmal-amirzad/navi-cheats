@@ -1,0 +1,40 @@
+% process
+
+# display system processes and resource usage
+top
+
+# list running processes
+ps
+
+# list all processes with details
+ps aux
+
+# find specific process
+ps aux | grep <process_name>
+
+# find process by ID
+ps -p <PID>
+
+# open files
+lsof
+
+# open network files
+sudo lsof -i
+
+# process using port
+sudo lsof -i TCP:<port>
+
+# process using port
+sudo lsof -i :<port>
+
+# terminate process by ID
+kill <PID>
+
+# force kill process
+kill -9 <PID>
+
+# kill all processes by name
+killall <process_name>
+
+# kill process by name
+pkill <process_name>

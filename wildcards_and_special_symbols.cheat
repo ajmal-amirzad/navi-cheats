@@ -1,0 +1,43 @@
+% wildcards and special symbols
+
+# home directory
+~
+
+# current directory
+.
+
+# parent directory
+..
+
+# match any number of characters (wildcard)
+*
+
+# match exactly one character (wildcard)
+?
+
+# match any one character within a set of range
+[]
+
+# pipe - pass output of one command as input to another
+|
+
+# redirect standard output to a file (overwrites)
+>
+
+# redirect standard output to a file (appends)
+>>
+
+# redirect standard error to a file
+2>
+
+# run command in background
+&
+
+# run next command only if previous succeeds
+&&
+
+# run next command only if previous fails
+||
+
+# run next command regardless
+;

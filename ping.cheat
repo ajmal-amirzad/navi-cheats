@@ -1,0 +1,10 @@
+% ping
+
+# ping a host
+ping <host>
+
+# ping host 5 times
+ping -c 5 <host>
+
+# ping with 2 second interval
+ping -i 2 <host>

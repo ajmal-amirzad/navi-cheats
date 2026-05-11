@@ -1,0 +1,154 @@
+% ssh
+
+# connect to remote host
+ssh <user>@<host>
+
+# connect using specific port
+ssh -p <port> <user>@<host>
+
+# run remote command
+ssh <user>@<host> "<command>"
+
+# run multiple commands
+ssh <user>@<host> "<command_1> && <command_2>"
+
+# run command with sudo
+ssh <user>@<host> "sudo <command>"
+
+# execute local script remotely
+ssh <user>@<host> 'bash -s' < <script.sh>
+
+# local port forwarding
+ssh -L <local_port>:<target_host>:<target_port> <user>@<host>
+
+# remote port forwarding
+ssh -R <remote_port>:localhost:<local_port> <user>@<host>
+
+# background tunnel
+ssh -fN -L <local_port>:<target_host>:<target_port> <user>@<host>
+
+# keep tunnel alive
+ssh -o ServerAliveInterval=60 <user>@<host>
+
+# connect with verbose logging
+ssh -v <user>@<host>
+
+# connect with maximum verbosity
+ssh -vvv <user>@<host>
+
+# connect using IPv4 only
+ssh -4 <user>@<host>
+
+# connect using IPv6 only
+ssh -6 <user>@<host>
+
+# test authentication only
+ssh -T <user>@<host>
+
+# bypass known_hosts checking
+ssh -o StrictHostKeyChecking=no <user>@<host>
+
+# generate ed25519 ssh key
+ssh-keygen -t ed25519 -C "<email>"
+
+# generate RSA ssh key
+ssh-keygen -t rsa -b 4096 -C "<email>"
+
+# generate key with custom filename
+ssh-keygen -t ed25519 -f ~/.ssh/<key_name>
+
+# change key passphrase
+ssh-keygen -p -f ~/.ssh/<key_name>
+
+# show fingerprint of key
+ssh-keygen -lf ~/.ssh/<key_name>.pub
+
+# remove host from known_hosts
+ssh-keygen -R <host>
+
+# scan and add host key
+ssh-keyscan <host> >> ~/.ssh/known_hosts
+
+# show known host fingerprints
+ssh-keygen -F <host>
+
+# add key to ssh agent
+ssh-add ~/.ssh/<key_name>
+
+# list loaded keys
+ssh-add -l
+
+# remove key from agent
+ssh-add -d ~/.ssh/<key_name>
+
+# remove all keys from agent
+ssh-add -D
+
+# use config alias
+ssh <host_alias>
+
+# test ssh config
+ssh -G <host_alias>
+
+# copy public key to remote server
+ssh-copy-id <user>@<host>
+
+# copy key using custom port
+ssh-copy-id -p <port> <user>@<host>
+
+# show public key
+cat ~/.ssh/<key_name>.pub
+
+# copy public key to clipboard
+cat ~/.ssh/<key_name>.pub | pbcopy
+
+# manually append key to authorized_keys
+cat ~/.ssh/<key_name>.pub | ssh <user>@<host> "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+
+# set secure permissions for ssh directory
+chmod 700 ~/.ssh
+
+# set private key permissions
+chmod 600 ~/.ssh/<key_name>
+
+# set public key permissions
+chmod 644 ~/.ssh/<key_name>.pub
+
+# set authorized_keys permissions
+chmod 600 ~/.ssh/authorized_keys
+
+# create ssh directory
+mkdir -p ~/.ssh
+
+# list ssh files
+ls -la ~/.ssh
+
+# backup ssh config
+cp ~/.ssh/config ~/.ssh/config.backup
+
+# remove old key
+rm ~/.ssh/<key_name>
+
+# copy file to remote host
+scp <file> <user>@<host>:<remote_path>
+
+# copy file from remote host
+scp <user>@<host>:<remote_file> <local_path>
+
+# copy directory recursively
+scp -r <directory> <user>@<host>:<remote_path>
+
+# use custom ssh port with scp
+scp -P <port> <file> <user>@<host>:<remote_path>
+
+# preserve timestamps and permissions
+scp -p <file> <user>@<host>:<remote_path>
+
+# sync local directory to remote
+rsync -avz -e ssh <local_dir>/ <user>@<host>:<remote_dir>
+
+# sync remote directory locally
+rsync -avz -e ssh <user>@<host>:<remote_dir>/ <local_dir>
+
+# delete removed files during sync
+rsync -avz --delete -e ssh <local_dir>/ <user>@<host>:<remote_dir>

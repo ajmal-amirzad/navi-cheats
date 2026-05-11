@@ -1,0 +1,7 @@
+% source
+
+# reload shell config
+source ~/.bashrc
+
+# reload zsh config
+source ~/.zshrc

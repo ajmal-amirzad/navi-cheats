@@ -1,0 +1,118 @@
+% user
+
+# list all users
+cat /etc/passwd
+
+# list all groups
+cat /etc/group
+
+# create a new user
+useradd <username>
+
+# create a new user with a home directory at a specified path
+useradd --home <path_to_home> <username>
+
+# change password
+passwd
+
+# change user's password (as root)
+passwd <username>
+
+# delete a user
+userdel <username>
+
+# delete a user along with their home directory
+userdel -r <username>
+
+# add a user to a group
+usermod -aG <group> <username>
+
+# lock a user
+usermod -L <username>
+
+# unlock a user
+usermod -U <username>
+
+# change file permissions to rw-r--r--
+chmod 644 <file_name>
+
+# change directory permissions to rwxr-xr-x
+chmod 755 <dir_name>
+
+# add execute permission to a file
+chmod +x <file_name>
+
+# remove execute permission from a file
+chmod -x <file_name>
+
+# add read permission for the user (owner)
+chmod u+r <file_name>
+
+# add execute permission for the user (owner)
+chmod u+x <file_name>
+
+# remove write permission for the group
+chmod g-w <file_name>
+
+# set read-only permission for others
+chmod o=r <file_name>
+
+# remove read/write from others
+chmod o-rw file
+
+# recursive permissions
+chmod -R 755 dir
+
+# change file owner
+chown <user> <file_name>
+
+# change owner and group
+chown <user>:<group> <file_name>
+
+# recursively change ownership
+chown -r <user> <dir_name>
+
+# recursive owner change
+chown -R <user> <dir_name>
+
+# create a group
+groupadd <group>
+
+# delete a group
+groupdel <group>
+
+# current user
+whoami
+
+# logged in users
+who
+
+# logged in users and activities
+w
+
+# login history
+last
+
+# display current user and group IDs
+id
+
+# display specific user's ID's
+id <username>
+
+# display system architecture
+arch
+
+# display current working directory
+pwd
+
+# display groups of the current user
+groups
+
+# display groups for a specific user
+groups <username>
+
+# display currently logged-in usernames
+users
+
+# display the current login name
+logname

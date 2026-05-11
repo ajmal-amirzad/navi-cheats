@@ -1,0 +1,34 @@
+% search/find
+
+# find a file by name
+find <dir_name> -name <file_name>
+
+# find a file - case-insensitive
+find . -iname <*.txt>
+
+# find all .txt files
+find <dir_name> -type f -name "*.txt"
+
+# find a directory by name
+find <dir_name> -type d -name <dir_name>
+
+# find files larger than 10MB
+find <dir_name> -size +10M
+
+# find files modified in the last 7 days
+find <dir_name> -mtime -7
+
+# find all regular files
+find <dir_name> -type f
+
+# find all directories
+find <dir_name> -type d
+
+# find all symbolic links
+find <dir_name> -type l
+
+# find files owned by user
+find <dir_name> -user <username>
+
+# find files with specific permissions
+find <dir_name> -perm 644

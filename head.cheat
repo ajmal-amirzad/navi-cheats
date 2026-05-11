@@ -1,0 +1,7 @@
+% file
+
+# display first 10 lines
+head <file_name>
+
+# display first 20 lines
+head -n 20 <file_name>

@@ -1,0 +1,175 @@
+% openssl, certificate, encryption
+
+# show openssl version
+openssl version
+
+# show all available commands
+openssl help
+
+# get help for a specific command
+openssl <command> -help
+
+# generate random bytes (hex)
+openssl rand -hex 16
+
+# generate base64 random string
+openssl rand -base64 32
+
+# generate strong random password
+openssl rand -base64 24
+
+# generate binary random data
+openssl rand 32 > random.bin
+
+# encode file to base64
+openssl base64 -in <file> -out <file>.b64
+
+# decode base64 file
+openssl base64 -d -in <file>.b64 -out <file>
+
+# encode string to base64
+echo -n "<text>" | openssl base64
+
+# decode base64 string
+echo "<encoded_text>" | openssl base64 -d
+
+# encrypt file using aes-256-cbc
+openssl enc -aes-256-cbc -salt -in <input_file> -out <output_file>.enc
+
+# decrypt file
+openssl enc -d -aes-256-cbc -in <enc_file>.enc -out <file_name>
+
+# encrypt with password
+openssl enc -aes-256-cbc -salt -pass pass:<password> -in <input_file> -out <output_file>.enc
+
+# decrypt with password
+openssl enc -d -aes-256-cbc -pass pass:<password> -in <enc_file>.enc -out <output_file>
+
+# list available ciphers
+openssl enc -ciphers
+
+# generate private key
+openssl genrsa -out <private_key>.pem 2048
+
+# generate private key (modern)
+openssl genpkey -algorithm RSA -out <private_key>.pem -pkeyopt rsa_keygen_bits:2048
+
+# extract public key
+openssl rsa -in <private_key>.pem -pubout -out <public_key>.pem
+
+# view private key
+openssl rsa -in <private_key>.pem -text -noout
+
+# remove a passphrase from a private key
+openssl rsa -in <INPUT_KEY> -out <OUTPUT_PLAINTEXT_KEY>
+
+# validate a private key
+openssl rsa -in <INPUT_KEY> -check
+
+# compare the MD5 hash of a private key
+openssl rsa -noout -modulus -in <INPUT_KEY> | openssl md5
+
+# generate EC private key
+openssl ecparam -name prime256v1 -genkey -noout -out <ec_key>.pem
+
+# extract EC public key
+openssl ec -in <ec_key>.pem -pubout -out <ec_public>.pem
+
+# view CSR
+openssl req -in <request>.csr -text -noout
+
+# verify CSR
+openssl req -verify -in <request>.csr
+
+# generate certificate signing request (CSR)
+openssl req -new -key <key>.pem -out <request>.csr
+
+# create a new signing request and key
+openssl req -new -newkey rsa:<RSA_LENGTH> -nodes -out <OUTPUT_CSR> -keyout <OUTPUT_KEY>
+
+# create a new self-signed certificate
+openssl req -x509 -newkey rsa:2048 -keyout <key>.pem -out <cert>.pem -days 365 -nodes
+
+# create a new self-signed certificate
+openssl req -x509 -sha256 -nodes -days <VALIDITY> -newkey rsa:<RSA_LENGTH> -out <OUTPUT_CRT> -keyout <OUTPUT_KEY>
+
+# create a signing request from existing key
+openssl req -out <OUTPUT_CSR> -key <INPUT_KEY> -new
+
+# validate a certificate signing request
+openssl req -text -noout -verify -in <OUTPUT_CSR>
+
+# compare the MD5 hash of a certificate signing request
+openssl req -noout -modulus -in <INPUT_CSR> | openssl md5
+
+# verify certificate
+openssl verify <cert>.pem
+
+# view certificate
+openssl x509 -in <cert>.pem -text -noout
+
+# create a signing request from existing certificate and key
+openssl x509 -x509toreq -out <OUTPUT_CSR> -in <INPUT_CRT> -signkey <INPUT_KEY>
+
+# convert a DER encoded file to a PEM encoded file
+openssl x509 -inform der -in <INPUT_CRT> -out <OUTPUT_PEM>
+
+# convert a PEM encoded file to a DER encoded file
+openssl x509 -outform der -in <INPUT_PEM> -out <OUTPUT_CRT>
+
+# check certificate expiration
+openssl x509 -in <cert>.pem -noout -enddate
+
+# show certificate subject
+openssl x509 -in <cert>.pem -noout -subject
+
+# show certificate issuer
+openssl x509 -in <cert>.pem -noout -issuer
+
+# convert PEM to DER
+openssl x509 -in <cert>.pem -outform der -out <cert>.der
+
+# convert DER to PEM
+openssl x509 -in <cert>.der -inform der -out <cert>.pem
+
+# compare the MD5 hash of a certificate
+openssl x509 -noout -modulus -in <INPUT_CRT> | openssl md5
+
+# convert PEM to PKCS12 (.p12/.pfx)
+openssl pkcs12 -export -out <cert>.pfx -inkey <key>.pem -in <cert>.pem
+
+# extract key from PKCS12
+openssl pkcs12 -in <cert>.pfx -nocerts -out <key>.pem
+
+# extract cert from PKCS12
+openssl pkcs12 -in <cert>.pfx -clcerts -nokeys -out <cert>.pem
+
+# convert a PKCS12 encoded file containing a private key and certificates to PEM
+openssl pkcs12 -in <INPUT_PKCS12> -out <OUTPUT_PEM> -nodes
+
+# extract the private key from a PKCS12 encoded file
+openssl pkcs12 -in <INPUT_PKCS12> -out <OUTPUT_PEM> -nodes -nocerts
+
+# extract the certificate from a PKCS12 encoded file
+openssl pkcs12 -in <INPUT_PKCS12> -out <OUTPUT_PEM> -nodes -nokeys
+
+# convert a PEM certificate file and a private key to PKCS12 encoded file
+openssl pkcs12 -export -out <OUTPUT_PKCS12> -inkey <INPUT_KEY> -in <INPUT_CRT> -certfile <INPUT_CRT>
+
+# validate a PKCS12 file (.pfx or .p12)
+openssl pkcs12 -info -in <INPUT_PKCS12>
+
+# test TLS connection
+openssl s_client -connect <host>:443
+
+# show server certificate
+openssl s_client -connect <host>:443 -showcerts
+
+# test specific TLS version
+openssl s_client -connect <host>:443 -tls1_2
+
+# check certificate chain
+openssl s_client -connect <host>:443 -verify_return_error
+
+# start simple TLS server (test)
+openssl s_server -cert <cert>.pem -key <key>.pem -port 4433

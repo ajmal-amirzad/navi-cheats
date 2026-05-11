@@ -1,0 +1,13 @@
+% encryption
+
+# encrypt a file using bcrypt
+bcrypt <file_name>
+
+# decrypt a file using bcrypt
+bcrypt <file_name>.bfe
+
+# remove original after encryption - bcrypt
+bcrypt -r [file.txt]
+
+
+

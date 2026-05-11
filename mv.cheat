@@ -1,0 +1,7 @@
+% file & directory
+
+# move or rename a file/directory
+mv <source> <destination>
+
+# prompt before overwriting
+mv -i <source> <destination>

@@ -1,0 +1,16 @@
+% file & directory
+
+# change directory
+cd <dir_name>
+
+# change to home directory
+cd ~
+
+# change to parent directory
+cd ..
+
+# change to previous directory
+cd -
+
+# change to root directory
+cd /

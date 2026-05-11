@@ -1,0 +1,16 @@
+% base64
+
+# encode to base64
+base64 <file_name>
+
+# decode base64
+base64 -d <file_name>
+
+# encode string
+$ echo <text> | base64
+
+# decode string
+$ echo <encoded_text> | base64 -d
+
+# no wrapping
+$ base64 -w 0 <file_name>

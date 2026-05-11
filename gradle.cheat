@@ -1,0 +1,173 @@
+% gradle
+
+# show gradle version
+gradle -v
+
+# show help
+gradle help
+
+# list all available tasks
+gradle tasks
+
+# list all tasks including hidden
+gradle tasks --all
+
+# run specific task
+gradle <task_name>
+
+# show task details
+gradle help --task <task_name>
+
+# run task with dependencies
+gradle <task_name> --dry-run
+
+# run subproject task
+gradle :<subproject>:build
+
+# initialize new gradle project
+gradle init
+
+# initialize java application project
+gradle init --type java-application
+
+# initialize java library project
+gradle init --type java-library
+
+# initialize kotlin project
+gradle init --type kotlin-application
+
+# initialize groovy project
+gradle init --type groovy-application
+
+# build project
+gradle build
+
+# refresh dependencies
+gradle build --refresh-dependencies
+
+# exclude task
+gradle build -x test
+
+# run with info logs
+gradle build --info
+
+# run with debug logs
+gradle build --debug
+
+# build cache clean (if enabled)
+gradle build --no-build-cache
+
+# stacktrace on failure
+gradle build --stacktrace
+
+# full stacktrace
+gradle build --full-stacktrace
+
+# scan build (Gradle Enterprise)
+gradle build --scan
+
+# run with continuous build (watch mode)
+gradle build --continuous
+
+# build release version
+gradle build -Penv=prod
+
+# pass project property
+gradle build -Pversion=1.0.0
+
+# specify Java home
+gradle build -Dorg.gradle.java.home=<path>
+
+# enable parallel build
+gradle build --parallel
+
+# enable build cache
+gradle build --build-cache
+
+# enable daemon
+gradle build --daemon
+
+# disable daemon
+gradle build --no-daemon
+
+# parallel execution
+gradle build --parallel
+
+# configure max workers
+gradle build --max-workers=4
+
+# clean build artifacts
+gradle clean
+
+# clean cache
+gradle cleanBuildCache
+
+# assemble without tests
+gradle assemble
+
+# run full verification (tests + checks)
+gradle check
+
+# run application
+gradle run
+
+# run with arguments
+gradle run --args="<arg1> <arg2>"
+
+# run all tests
+gradle test
+
+# run specific test class
+gradle test --tests "<TestClassName>"
+
+# run specific test method
+gradle test --tests "<TestClassName>.<methodName>"
+
+# run tests with info output
+gradle test --info
+
+# run tests continuously
+gradle test --continuous
+
+# generate test report
+gradle test
+
+# list dependencies
+gradle dependencies
+
+# show dependencies for specific configuration
+gradle dependencies --configuration runtimeClasspath
+
+# check dependency insight
+gradle dependencyInsight --dependency <dependency_name>
+
+# force dependency update
+gradle --refresh-dependencies
+
+# generate gradle wrapper
+gradle wrapper
+
+# generate wrapper with specific version
+gradle wrapper --gradle-version <version>
+
+# run project using wrapper
+./gradlew build
+
+# update wrapper version
+./gradlew wrapper --gradle-version <version>
+
+# show wrapper version
+./gradlew --version
+
+# list subprojects
+gradle projects
+
+# publish artifacts
+gradle publish
+
+# publish to maven local
+gradle publishToMavenLocal
+
+# publish with specific repo
+gradle publish -Prepository=<repo_name>
+

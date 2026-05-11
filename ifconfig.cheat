@@ -1,0 +1,76 @@
+% ifconfig
+
+# show all network interfaces
+ifconfig
+
+# show only active interfaces
+ifconfig -a
+
+# show specific interface
+ifconfig <interface>
+
+# show interfaces with short output
+ifconfig -s
+
+# bring interface up
+ifconfig <interface> up
+
+# bring interface down
+ifconfig <interface> down
+
+# restart interface
+ifconfig <interface> down && ifconfig <interface> up
+
+# assign IP address to interface
+ifconfig <interface> <ip_address>
+
+# assign IP with netmask
+ifconfig <interface> <ip_address> netmask <netmask>
+
+# assign broadcast address
+ifconfig <interface> broadcast <broadcast_address>
+
+# set IP + netmask + broadcast together
+ifconfig <interface> <ip_address> netmask <netmask> broadcast <broadcast_address>
+
+# change MAC address
+ifconfig <interface> hw ether <mac_address>
+
+# view MAC address
+ifconfig <interface> | grep ether
+
+# show packet statistics
+ifconfig <interface>
+
+# show RX/TX errors
+ifconfig <interface> | grep -E "errors|dropped|overruns"
+
+# reset interface statistics (by restart)
+ifconfig <interface> down && ifconfig <interface> up
+
+# set MTU size
+ifconfig <interface> mtu <value>
+
+# example: set MTU to 1500
+ifconfig <interface> mtu 1500
+
+# enable loopback
+ifconfig lo up
+
+# assign loopback IP
+ifconfig lo 127.0.0.1
+
+# enable broadcast flag
+ifconfig <interface> broadcast <broadcast_address>
+
+# enable multicast
+ifconfig <interface> multicast
+
+# create interface alias
+ifconfig <interface>:0 <ip_address>
+
+# remove alias
+ifconfig <interface>:0 down
+
+# multiple IPs on same interface
+ifconfig <interface>:1 <ip_address>

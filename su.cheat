@@ -1,0 +1,19 @@
+% su and sudo
+
+# switch user to root
+su
+
+# switch to specific user
+su <username>
+
+switch with login shell
+su - <username>
+
+# run command as superuser
+sudo <command>
+
+# run command as specific user
+sudo -u <user> <command>
+
+# switch to root user
+sudo -i

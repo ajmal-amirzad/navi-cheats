@@ -1,0 +1,17 @@
+% file & directory
+
+# display a file contents
+cat <file name>
+
+# display multiple files
+cat <file1> <file2>
+
+# copy file1 to file2
+cat <file1> > <file2>
+
+# combine several files into one
+cat <file1> <file2> > <output_file>
+
+# show line numbers
+cat -n <file>
+

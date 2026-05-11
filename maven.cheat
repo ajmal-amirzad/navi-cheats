@@ -1,0 +1,157 @@
+% maven
+
+# show maven version
+mvn -v
+
+# show help
+mvn -h
+
+# display effective settings
+mvn help:effective-settings
+
+# display effective pom
+mvn help:effective-pom
+
+# show project info
+mvn help:active-profiles
+
+# create simple project
+mvn archetype:generate
+
+# create quickstart project
+mvn archetype:generate -DgroupId=<group_id> -DartifactId=<artifact_id> -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+# create web app project
+mvn archetype:generate -DgroupId=<group_id> -DartifactId=<artifact_id> -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+# create + build project
+mvn archetype:generate -DgroupId=<group_id> -DartifactId=<artifact_id> -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+# compile project
+mvn compile
+
+# compile + test
+mvn test
+
+# package project (jar/war)
+mvn package
+
+# offline mode
+mvn -o package
+
+# debug mode
+mvn -X package
+
+# quiet mode
+mvn -q package
+
+# batch mode (CI/CD)
+mvn -B package
+
+# skip tests
+mvn package -DskipTests
+
+# skip compilation of tests
+mvn package -Dmaven.test.skip=true
+
+# specify final name
+mvn package -DfinalName=<name>
+
+# install to local repository
+mvn install
+
+# skip tests
+mvn install -DskipTests
+
+# skip test compilation
+mvn install -Dmaven.test.skip=true
+
+# clean build artifacts
+mvn clean
+
+# force update dependencies
+mvn clean install -U
+
+# clean + build
+mvn clean package
+
+# full lifecycle (clean, test, package, install)
+mvn clean install
+
+# use custom settings.xml
+mvn -s <settings_file> clean install
+
+# set local repository path
+mvn -Dmaven.repo.local=<path> clean install
+
+# run specific test class
+mvn -Dtest=<TestClassName> test
+
+# run specific test method
+mvn -Dtest=<TestClassName>#<methodName> test
+
+# run application using exec plugin
+mvn exec:java -Dexec.mainClass=<main_class>
+
+# run with arguments
+mvn exec:java -Dexec.mainClass=<main_class> -Dexec.args="<args>"
+
+# list dependencies
+mvn dependency:list
+
+# tree view of dependencies
+mvn dependency:tree
+
+# analyze dependencies
+mvn dependency:analyze
+
+# copy dependencies to folder
+mvn dependency:copy-dependencies
+
+# resolve single dependency
+mvn dependency:get -Dartifact=<group_id>:<artifact_id>:<version>
+
+# list available plugins
+mvn help:all-profiles
+
+# run specific plugin goal
+mvn <plugin>:<goal>
+
+# example: clean plugin
+mvn clean:clean
+
+# example: compiler plugin
+mvn compiler:compile
+
+# example: surefire tests
+mvn surefire:test
+
+# compile tests only
+mvn test-compile
+
+# deploy to remote repository
+mvn deploy
+
+# show active profiles
+mvn help:active-profiles
+
+# verbose output
+mvn -X clean install
+
+# show errors only
+mvn -e clean install
+
+# debug tests
+mvn -Dtest=<TestClass> -X test
+
+# run single test class
+mvn -Dtest=<TestClassName> test
+
+# run test method
+mvn -Dtest=<TestClassName>#<methodName> test
+
+# attach sources jar
+mvn source:jar
+
+# create maven project
+mvn archetype:generate

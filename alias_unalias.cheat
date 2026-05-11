@@ -1,0 +1,10 @@
+% alias/unalias
+
+# list all aliases
+alias
+
+# create a command alias
+alias <name>='<command>'
+
+# remove an alias
+unalias <name>

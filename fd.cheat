@@ -1,0 +1,265 @@
+% fd
+
+# search for files by name
+fd <pattern>
+
+# search in specific directory
+fd <pattern> <directory>
+
+# search case-insensitively
+fd -i <pattern>
+
+# search case-sensitively
+fd -s <pattern>
+
+# show hidden files
+fd -H <pattern>
+
+# include ignored files
+fd -I <pattern>
+
+# search hidden and ignored files
+fd -u <pattern>
+
+# list all files
+fd .
+
+# search exact filename
+fd '^<file_name>$'
+
+# search only files
+fd -t f <pattern>
+
+# search only directories
+fd -t d <pattern>
+
+# search only symlinks
+fd -t l <pattern>
+
+# search executable files
+fd -t x <pattern>
+
+# exclude empty files
+fd -t f <pattern>
+
+# search multiple file types
+fd -t f -t l <pattern>
+
+# search by file extension
+fd -e <extension>
+
+# search pattern with extension
+fd <pattern> -e <extension>
+
+# search multiple extensions
+fd -e <extension_1> -e <extension_2>
+
+# search rust source files
+fd -e rs
+
+# search markdown files
+fd -e md
+
+# search json files
+fd -e json
+
+# search full path
+fd -p <pattern>
+
+# search from root directory
+fd <pattern> /
+
+# search in current directory recursively
+fd <pattern> .
+
+# limit search depth
+fd --max-depth <depth> <pattern>
+
+# set minimum search depth
+fd --min-depth <depth> <pattern>
+
+# exclude specific path
+fd -E <excluded_path> <pattern>
+
+# exclude multiple paths
+fd -E <path_1> -E <path_2> <pattern>
+
+# include hidden files
+fd -H <pattern>
+
+# include ignored files
+fd -I <pattern>
+
+# include hidden and ignored files
+fd -u <pattern>
+
+# ignore .gitignore rules
+fd -I <pattern>
+
+# search inside .git directory
+fd -H <pattern> .git
+
+# search all files including hidden
+fd -u .
+
+# execute command for each result
+fd <pattern> -x <command>
+
+# execute command with placeholder
+fd <pattern> -x <command> {}
+
+# remove matched files
+fd <pattern> -x rm {}
+
+# show file details with ls
+fd <pattern> -x ls -l {}
+
+# format files with prettier
+fd -e js -x prettier --write {}
+
+# execute command once with all results
+fd <pattern> -X <command>
+
+# archive matched files
+fd -e log -X tar -czf <archive_name>.tar.gz
+
+# pipe results to xargs
+fd <pattern> | xargs <command>
+
+# open matched files in vim
+fd -e rs | xargs vim
+
+# search file contents with rg
+fd -e txt -x rg <search_text> {}
+
+# preview files with bat
+fd <pattern> -x bat {}
+
+# delete files interactively
+fd <pattern> | fzf
+
+# count matching files
+fd <pattern> | wc -l
+
+# search using regex
+fd '<regex_pattern>'
+
+# match files starting with prefix
+fd '^<prefix>'
+
+# match files ending with suffix
+fd '<suffix>$'
+
+# match exact filename
+fd '^<file_name>$'
+
+# match numeric filenames
+fd '^[0-9]+$'
+
+# search files containing text
+fd '<partial_name>'
+
+# show absolute paths
+fd --absolute-path <pattern>
+
+# show paths relative to base directory
+fd --base-directory <directory> <pattern>
+
+# separate results with null character
+fd -0 <pattern>
+
+# colorize output
+fd --color always <pattern>
+
+# disable colored output
+fd --color never <pattern>
+
+# list one result per line
+fd <pattern>
+
+# follow symbolic links
+fd -L <pattern>
+
+# search only symlinks
+fd -t l <pattern>
+
+# include broken symlinks
+fd -t l .
+
+# follow links during search
+fd --follow <pattern>
+
+# ignore .gitignore rules
+fd -I <pattern>
+
+# ignore hidden file filtering
+fd -H <pattern>
+
+# ignore all default exclusions
+fd -u <pattern>
+
+# use custom ignore file
+fd --ignore-file <ignore_file> <pattern>
+
+# find large log files
+fd -e log
+
+# find configuration files
+fd -e conf
+
+# find environment files
+fd '^\.env'
+
+# find docker files
+fd Dockerfile
+
+# find readme files
+fd -i readme
+
+# find test files
+fd test
+
+# find node_modules directories
+fd node_modules -t d
+
+# find git repositories
+fd .git -t d
+
+# find images
+fd -e png -e jpg -e jpeg
+
+# find videos
+fd -e mp4 -e mkv -e avi
+
+# remove all tmp files
+fd -e tmp -x rm {}
+
+# move files to directory
+fd -e log -x mv {} <destination_directory>
+
+# copy files to backup directory
+fd -e conf -x cp {} <backup_directory>
+
+# chmod executable scripts
+fd -e sh -x chmod +x {}
+
+# compress matched files
+fd -e txt -x gzip {}
+
+# rename files using bash
+fd <pattern> -x bash -c 'mv "$1" "${1%.txt}.md"' _ {}
+
+# search current directory
+fd . .
+
+# search home directory
+fd <pattern> ~
+
+# search only directories
+fd -t d <pattern>
+
+# create directory from results
+fd <pattern> -x mkdir -p <directory_name>
+
+# list files with details
+fd <pattern> -x ls -lh {}

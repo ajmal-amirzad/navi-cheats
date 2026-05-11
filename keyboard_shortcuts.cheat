@@ -1,0 +1,34 @@
+% keyword shortcuts
+
+# interrupt the current process
+ctrl + c
+
+# suspend the current process
+ctrl + z
+
+# send end-of-file (EOF) or logout signal
+ctrl + d
+
+# clear the terminal screen
+ctrl + l
+
+# search command history in reverse
+ctrl + r
+
+# move cursor to the beginning of the line
+ctrl + a
+
+# move cursor to the end of the line
+ctrl + e
+
+# delete text from cursor to the beginning of the line
+ctrl + u
+
+# delete text from cursor to the end of the line
+ctrl + k
+
+# delete the previous word
+ctrl + w
+
+# autocomplete commands or file names
+tab

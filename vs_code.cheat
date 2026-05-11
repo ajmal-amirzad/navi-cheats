@@ -1,0 +1,19 @@
+% vs code
+
+# open current directory
+code .
+
+# open a specific file
+code <file_name>
+
+# open multiple files
+code <file_name_1> <file_name_2>
+
+# open folder in new window
+code -n <dir_name>
+
+# reuse existing window
+code -r .
+
+# diff two files
+code --diff <old_file_name> <new_file_name>

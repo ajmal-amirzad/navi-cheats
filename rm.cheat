@@ -1,0 +1,13 @@
+% file & directory
+
+# remove a file
+rm <file_name>
+
+# remove a directory and its contents recursively
+rm -r <dir_name>
+
+# force remove without prompting
+rm -f <file_name>
+
+# force remove recursively
+rm -rf <dir_name>

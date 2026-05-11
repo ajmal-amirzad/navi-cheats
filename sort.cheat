@@ -1,0 +1,13 @@
+% sort
+
+# sort lines in a file
+sort <file_name>
+
+# sort lines numerically
+sort -n <file_name>
+
+# sort lines in reverse order
+sort -r <file_name>
+
+# sort by the second column
+sort -k 2 <file_name>

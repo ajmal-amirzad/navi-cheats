@@ -1,0 +1,229 @@
+% kubernetes
+
+# resource quota
+kubectl describe resourcequota
+
+# User Management (RBAC concept)
+kubectl get roles/rolebindings/clusterroles/clusterrolebindings
+
+# displays all worker and control plane nodes in the cluster
+kubectl get nodes
+
+# lists all running pods in the current namespace
+kubectl get pods
+
+# shows replica sets that maintain pod replicas
+kubectl get replicasets
+
+# lists deployments managing application rollout and scaling
+kubectl get deployments
+
+# shows services exposing applications inside or outside the cluster
+kubectl get services
+
+# lists all namespaces used for resource isolation
+kubectl get namespaces
+
+# displays configuration data stored separately from applications
+kubectl get configmaps
+
+# shows sensitive data such as credentials and tokens
+kubectl get secrets
+
+# lists ip addresses and ports backing services
+kubectl get endpoints
+
+# shows available storage provisioning classes
+kubectl get storageclasses
+
+# lists stateful workloads with persistent identity
+kubectl get statefulsets
+
+# shows cluster-wide persistent storage volumes
+kubectl get persistentvolumes
+
+# shows storage requests made by pods
+kubectl get persistentvolumeclaims
+
+# standard internal dns format for service discovery
+# <service-name>.<namespace>.svc.cluster.local
+
+# displays control plane endpoint and cluster details
+kubectl cluster-info
+
+# lists all available kubernetes resource types
+kubectl api-resources
+
+# shows all supported api versions in the cluster
+kubectl api-versions
+
+# shows differences between local configuration and cluster state
+kubectl diff -f <file>
+
+# replaces an existing resource with a new configuration
+kubectl replace -f <file>
+
+# opens a live editor to modify a running resource
+kubectl edit <resource>/<name>
+
+# opens an interactive shell inside a container
+kubectl exec -it <pod> -- /bin/bash
+
+# shows detailed information and events for a resource
+kubectl describe <resource> <name>
+
+# displays documentation for pod resource structure
+kubectl explain pod
+
+# shows fields inside pod spec containers
+kubectl explain pod.spec.containers
+
+# creates a basic pod using a container image
+kubectl run <name> --image=<image>
+
+# sets cpu and memory limits for a container
+kubectl run <name> --image=<image> --limits="cpu=100m,memory=128Mi"
+
+# sets cpu and memory requests for scheduling
+kubectl run <name> --image=<image> --requests="cpu=200m,memory=256Mi"
+
+# exposes a container port in pod definition
+kubectl run <name> --image=<image> --port=<port>
+
+# adds labels for grouping and selection
+kubectl run <name> --image=<image> --labels="app=backend,env=prod"
+
+# generates yaml without creating resources
+kubectl run <name> --image=<image> --dry-run=client -o yaml
+
+# runs an interactive shell inside a temporary container
+kubectl run -it <name> --image=<image> -- sh
+
+# shows pods with additional node and ip details
+kubectl get pods -o wide
+
+# outputs full pod definition in yaml format
+kubectl get pods -o yaml
+
+# outputs full pod definition in json format
+kubectl get pods -o json
+
+# lists pods across all namespaces
+kubectl get pods -A
+
+# shows all standard resources in a namespace
+kubectl get all
+
+# filters pods using label selector
+kubectl get pods -l app=go-app
+
+# filters pods matching multiple label values
+kubectl get pods -l "app in (go-app,spring-app)"
+
+# creates a service exposing a deployment internally or externally
+kubectl expose deployment <name> --port=8080 --target-port=8000
+
+# exposes service on each node port
+kubectl expose deployment <name> --port=80 --type=NodePort
+
+# exposes service only inside cluster
+kubectl expose deployment <name> --port=80 --type=ClusterIP
+
+# exposes service externally using cloud load balancer
+kubectl expose deployment <name> --port=80 --type=LoadBalancer
+
+# displays logs from a pod
+kubectl logs <pod>
+
+# streams logs in real time
+kubectl logs -f <pod>
+
+# shows logs from a specific container
+kubectl logs <pod> -c <container>
+
+# shows logs from a previously crashed container
+kubectl logs --previous <pod> -c <container>
+
+# shows last 20 log lines
+kubectl logs --tail=20 <pod>
+
+# shows logs from the last hour
+kubectl logs --since=1h <pod>
+
+# shows logs for pods matching a label
+kubectl logs -l app=go-app
+
+# deletes a single pod
+kubectl delete pod <name>
+
+# deletes a deployment and its pods
+kubectl delete deployment <name>
+
+# deletes resources defined in a file
+kubectl delete -f <file>
+
+# deletes all resources matching a label
+kubectl delete all -l app=<label>
+
+# deletes all pods in current namespace
+kubectl delete --all pods
+
+# creates or updates resources from a yaml file
+kubectl apply -f <file>
+
+# applies all yaml files in a directory
+kubectl apply -f <dir>
+
+# applies configuration from a remote url
+kubectl apply -f <url>
+
+# validates configuration without applying changes
+kubectl apply --dry-run=client -f <file>
+
+# shows kubeconfig settings
+kubectl config view
+
+# shows current active context
+kubectl config current-context
+
+# switches to another context
+kubectl config use-context <context>
+
+# lists all available contexts
+kubectl config get-contexts
+
+# sets default namespace for current context
+kubectl config set-context --current --namespace=<ns>
+
+# shows deployment rollout progress
+kubectl rollout status deployment/<name>
+
+# shows revision history of a deployment
+kubectl rollout history deployment/<name>
+
+# rolls back to previous deployment version
+kubectl rollout undo deployment/<name>
+
+# restarts all pods in a deployment
+kubectl rollout restart deployment/<name>
+
+# pauses rollout process
+kubectl rollout pause deployment/<name>
+
+# resumes paused rollout
+kubectl rollout resume deployment/<name>
+
+# shows cpu and memory usage of pods
+kubectl top pods
+
+# shows resource usage for a specific pod
+kubectl top pod <name>
+
+# shows resource usage across all namespaces
+kubectl top pods -A
+
+# shows resource usage in a namespace
+kubectl top pods -n <namespace>
+
+# shows resource usage per container in pods
+kubectl top pods --containers

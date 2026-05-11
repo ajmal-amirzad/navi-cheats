@@ -1,0 +1,211 @@
+% java
+
+# create a jar file
+jar cf <jar_name>.jar <files_or_directories>
+
+# create jar from compiled classes
+jar cf <jar_name>.jar -C out .
+
+# include resources in jar
+jar cf <jar_name>.jar -C out . -C resources .
+
+# create compressed jar (default)
+jar cf <jar_name>.jar <files>
+
+# create jar with manifest file
+jar cfm <jar_name>.jar <manifest_file> <files_or_directories>
+
+# extract jar file
+jar xf <jar_name>.jar
+
+# list contents of jar
+jar tf <jar_name>.jar
+
+# verbose listing with sizes
+jar tvf <jar_name>.jar
+
+# update existing jar file
+jar uf <jar_name>.jar <files>
+
+# verbose output while creating jar
+jar cvf <jar_name>.jar <files_or_directories>
+
+# sign jar file
+jarsigner <jar_name>.jar <alias>
+
+# verify jar signature
+jarsigner -verify <jar_name>.jar
+
+# verbose verification
+jarsigner -verify -verbose -certs <jar_name>.jar
+
+# run executable jar
+java -jar <jar_name>.jar
+
+# run jar with JVM arguments
+java -Xmx512m -jar <jar_name>.jar
+
+# run jar with system properties
+java -D<property>=<value> -jar <jar_name>.jar
+
+# run jar
+java -cp <jar_name>.jar <main_class>
+
+# run multiple jars
+java -cp "<jar_name_1>.jar:<jar_name_2>.jar" <main_class>
+
+# compile a java file
+javac <file_name>.java
+
+# compile multiple java file
+javac <file_name_1>.java <file_name_2>.java
+
+# compile all java files
+javac *.java
+
+# compile java files
+javac -d out <source_files>
+
+# reduce size by excluding debug info (via javac)
+javac -g:none <source_files>
+
+# show jenv version
+jenv --version
+
+# show jenv help
+jenv help
+
+# list available commands
+jenv commands
+
+# show current active Java version
+jenv version
+
+# list installed Java versions
+jenv versions
+
+# add JAVA_HOME installation to jenv
+jenv add <java_home_path>
+
+# set global Java version
+jenv global <version>
+
+# set local project Java version
+jenv local <version>
+
+# set shell-specific Java version
+jenv shell <version>
+
+# unset local version
+jenv local --unset
+
+# show resolved Java version
+jenv version-name
+
+# show full Java path
+jenv which java
+
+# show javac path
+jenv which javac
+
+# verify jenv-managed java
+jenv which java
+
+# check environment resolution
+jenv doctor
+
+# remove java version from jenv
+jenv remove <version>
+
+# show sdkman version
+sdk version
+
+# show sdkman help
+sdk help
+
+# update sdkman itself
+sdk selfupdate
+
+# upgrade sdkman
+sdk update
+
+# show sdkman config
+cat ~/.sdkman/etc/config
+
+# set offline mode
+sdk offline enable
+
+# disable offline mode
+sdk offline disable
+
+# configure proxy
+sdk config
+
+# list available SDKs
+sdk list
+
+# list specific candidate (java, kotlin, gradle, etc.)
+sdk list <candidate>
+
+# list installed versions
+sdk list <candidate> | grep installed
+
+# list installed versions
+sdk list java
+
+# check outdated versions
+sdk list java | grep update
+
+# install Java version
+sdk install java <version>
+
+# install latest stable Java
+sdk install java
+
+# install specific distribution (temurin, zulu, etc.)
+sdk install java <version>-tem
+
+# install Gradle
+sdk install gradle <version>
+
+# install Maven
+sdk install maven <version>
+
+# install Kotlin
+sdk install kotlin <version>
+
+# install Groovy
+sdk install groovy <version>
+
+# reinstall SDK
+sdk install java <version> --force
+
+# reinstall default version
+sdk install java
+
+# set default global version
+sdk default java <version>
+
+# use version in current shell
+sdk use java <version>
+
+# switch Gradle version temporarily
+sdk use gradle <version>
+
+# switch Maven version temporarily
+sdk use maven <version>
+
+# show all current candidates
+sdk current
+
+# check current active version
+sdk current java
+
+# upgrade all candidates
+sdk upgrade
+
+# upgrade candidate to latest
+sdk upgrade java
+
+# remove installed SDK
+sdk uninstall java <version>

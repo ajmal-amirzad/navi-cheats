@@ -1,0 +1,31 @@
+% search/find
+
+# search for text in a file
+grep <text_to_search> <file_name>
+
+# search for text in all files in the current directory
+grep <text_to_search> *
+
+# select lines that do not match the pattern
+grep -v <text_not_to_search> <file_name>
+
+# perform case-insensitive search
+grep -i <text_to_search> <file_name>
+
+# search recursively in subdirectories
+grep -r <text_to_search> <dir_name>
+
+# search and display matching line numbers
+grep -n <text_to_search> <file_name>
+
+# count the number of matching lines
+grep -c <text_to_search> <file_name>
+
+# list only filenames that contain matches
+grep -l <text_to_search> *.txt
+
+# search for whole word matches only
+grep -w <text_to_search> <file_name>
+
+# search with extended regex
+grep -E <pattern> <file_name>
